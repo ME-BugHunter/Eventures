@@ -13,6 +13,7 @@ namespace Eventures.WebbApp.UITests
     public class BaseTests
     {
         protected WebDriver driver;
+        private ChromeOptions chromeOptions;
         private TestDb testDb;
         private TestEventuresApp<Startup> testEventuresApp;
         protected string baseUrl;
@@ -22,7 +23,9 @@ namespace Eventures.WebbApp.UITests
         {
             this.testDb = new TestDb();
             this.testEventuresApp = new TestEventuresApp<Startup>(testDb, "../../../../Eventures.WebApp");
-            this.driver = new ChromeDriver();
+            this.chromeOptions= new ChromeOptions();
+            chromeOptions.AddArgument("--headless");
+            this.driver = new ChromeDriver(chromeOptions);
             driver.Manage().Window.Maximize();
             this.baseUrl = testEventuresApp.ServerUri;
         }
