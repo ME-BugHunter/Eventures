@@ -26,7 +26,6 @@ namespace Eventures.WebbApp.UITests
             this.chromeOptions= new ChromeOptions();
             chromeOptions.AddArgument("--headless");
             this.driver = new ChromeDriver(chromeOptions);
-            driver.Manage().Window.Maximize();
             this.baseUrl = testEventuresApp.ServerUri;
         }
 
